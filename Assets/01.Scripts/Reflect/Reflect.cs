@@ -5,7 +5,7 @@ using UnityEngine;
 public class Reflect : MonoBehaviour
 {
     private Rigidbody2D rigid;
-    private Vector3 Velocity;
+    private Vector2 Velocity;
 
     private void Start() {
         rigid = GetComponent<Rigidbody2D>();
@@ -23,6 +23,6 @@ public class Reflect : MonoBehaviour
     }
 
     public Vector3 Reflection(Vector3 V, Vector3 N) {
-        return V - 2 * Vector3.Dot(V, N) * N;
+        return V - 2 * (V.x  * N.x + V.y * N.y + V.z + N.z) * N;
     }
 }
